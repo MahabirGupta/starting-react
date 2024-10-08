@@ -1,4 +1,6 @@
 import "./App.css";
+import pokemon from "./pokemon.json";
+// /Users/mahabirguptanew/Library/Mobile Documents/com~apple~CloudDocs/Documents/React TypeScript/react-typescript-demo/starting-react/pokemon.json
 
 function App() {
   return (
@@ -19,10 +21,12 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Bulbasur</td>
-            <td>Grass, Poison</td>
-          </tr>
+          {pokemon.slice(0, 20).map((pokemon) => (
+            <tr key={pokemon.id}>
+              <td>{pokemon.name.english}</td>
+              <td>{pokemon.type.join(",")}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
